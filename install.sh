@@ -28,9 +28,7 @@
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 TARGET_BASH_DRIVER=$1
-[ -z $TARGET_BASH_DRIVER ] && TARGET_BASH_DRIVER="~/.bashrc"
+[ -z $TARGET_BASH_DRIVER ] && TARGET_BASH_DRIVER=~/.bashrc
 [ ! -f $TARGET_BASH_DRIVER ] && echo "Target bash driver $TARGET_BASH_DRIVER does not exist. Exiting..." && exit 1
 
-exit 0
-
-! grep -q vs.*-extensions-market-toggle $TARGET_BASH_DRIVER && echo "[ -f $SCRIPT_DIR/switch.sh ] && source $SCRIPT_DIR/switch.sh" >> $TARGET_BASH_DRIVER
+! grep -q vs.*-extensions-market-toggle $TARGET_BASH_DRIVER && echo "[ -f $SCRIPT_DIR/switch.sh ] && source $SCRIPT_DIR/switch.sh" >> $TARGET_BASH_DRIVER && echo "Installed! Restart your terminal for changes to take effect."
